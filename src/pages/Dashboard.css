@@ -1,0 +1,78 @@
+.dashboard-wrapper {
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  background-color: #f9faff; /* very light fresh background */
+  color: #222831; /* dark slate text */
+}
+
+.platform-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #0d253f; /* dark slate blue */
+  font-weight: 700;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 60px; /* spacing below before BuySellContainer */
+}
+
+.text-section {
+  flex: 1;
+  min-width: 280px;
+  color: #334e68; /* medium slate */
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.chart-section {
+  flex: 1;
+  min-width: 280px;
+  height: 300px;
+}
+
+/* BuySellContainer wrapper inside dashboard */
+.buy-sell-container {
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+/* Optional: Style for buttons or interactive elements inside dashboard if needed */
+/* Example: matching button styles like About page */
+.dashboard-wrapper button,
+.buy-sell-container button {
+  background-color: #00aaff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(211, 217, 220, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-wrapper button:hover,
+.buy-sell-container button:hover {
+  background-color: #059fec;
+  box-shadow: 0 8px 25px rgba(247, 247, 247, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-section,
+  .chart-section {
+    min-width: 100%;
+  }
+}

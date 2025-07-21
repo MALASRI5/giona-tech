@@ -1,0 +1,175 @@
+
+.about-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background-color: #f9faff; 
+  color: #222831;
+  line-height: 1.7;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(34, 50, 99, 0.1);
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.intro-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0d253f;
+  margin-bottom: 15px;
+}
+
+.intro-section p {
+  font-size: 1.3rem;
+  color: #334e68;
+}
+
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 162, 255, 0.15);
+  padding: 5px 20px;
+  flex: 1 1 260px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px; 
+  box-sizing: border-box;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.stat-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #00aaff;
+  margin-bottom: 5px;
+}
+
+.stat-icon {
+  color: #00aaff;
+  margin-bottom: 12px;
+}
+
+/* Section Headings */
+.mission-section h2,
+.values-section h2,
+.founders-section h2,
+.join-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #0d253f;
+}
+
+.mission-section p {
+  font-size: 1.15rem;
+  color: #334e68;
+  margin-bottom: 14px;
+}
+
+.values-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.values-section li {
+  background: #ffffff;
+  border-left: 5px solid #00aaff;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  color: #334e68;
+  font-weight: 500;
+  box-shadow: 0 3px 9px rgba(0, 162, 255, 0.1);
+}
+
+.founder-card {
+  background-color: #ffffff;
+  padding: 30px 25px;
+  border-left: 8px solid #00aaff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 162, 255, 0.15);
+  margin-bottom: 40px;
+  color: #0d253f;
+}
+
+.founder-card h3 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.join-section {
+  text-align: center;
+  margin: 50px 0 20px;
+}
+
+.apply-btn {
+  background-color: #00aaff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 14px 38px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 162, 255, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #0077cc;
+  box-shadow: 0 8px 25px rgba(0, 119, 204, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-section h1 {
+    font-size: 2rem;
+  }
+
+  .mission-section,
+  .values-section,
+  .founders-section,
+  .join-section {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 768px) { 
+.stat-card {
+  padding: 5px;
+  width: 90%;         /* Full width with margin */
+  height: 300px;      /* Keep uniform height */
+  max-width: 400px;   /* Optional: Limit width */
+}
+}
