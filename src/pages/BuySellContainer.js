@@ -37,14 +37,14 @@ const coins = [
 const BuySellContainer = () => {
   return (
     <div className="container">
-      <h2 style={{ textAlign: "center", marginBottom: 30, color: "#333" }}>
+      <h2 style={{ textAlign: "center", marginBottom: 30, color: "#d4af37" }}>
         Buy / Sell Cryptos
       </h2>
       <div className="card-grid">
         {coins.map((coin) => (
           <div key={coin.id} className="card">
             <img src={coin.img} alt={coin.name} className="coin-image" />
-            <h3 style={{ color: "#222" }}>{coin.name}</h3>
+            <h3 style={{ color: "#d4af37" }}>{coin.name}</h3>
             <p className="price">${coin.price}</p>
             <div className="button-group">
               <button className="button buy-button">Buy</button>

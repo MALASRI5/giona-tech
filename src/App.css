@@ -6,8 +6,8 @@
   margin: 0;
   padding: 0;
   font-family: 'Playfair Display', serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #000000; /* black background */
+  color: #d4af37; /* gold text by default */
 }
 
 /* Container for dashboard */
@@ -21,16 +21,16 @@
 .buy-sell-container {
   margin-top: 40px;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #1a1a1a; /* dark black-like shade */
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3); /* gold glow */
 }
 
 .buy-sell-container h2 {
   text-align: center;
   font-weight: 700;
   margin-bottom: 30px;
-  color: #1e2a38;
+  color: #d4af37; /* gold font color */
 }
 
 /* Grid for cards: 2 per row */
@@ -43,19 +43,20 @@
 
 /* Each card */
 .card {
-  background-color: #fafafa;
+  background-color: #121212; /* very dark grey/black */
   flex-basis: 48%;
   padding: 24px;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.2); /* soft gold shadow */
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  color: #d4af37;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
 }
 
 /* Coin image */
@@ -63,12 +64,13 @@
   width: 64px;
   height: 64px;
   margin-bottom: 15px;
+  filter: drop-shadow(0 0 5px #d4af37);
 }
 
 /* Coin name */
 .card h3 {
   font-weight: 700;
-  color: #2c3e50;
+  color: #d4af37;
   margin-bottom: 10px;
 }
 
@@ -76,7 +78,7 @@
 .price {
   font-size: 20px;
   font-weight: 600;
-  color: #27ae60;
+  color: #f0c419; /* brighter gold shade */
   margin-bottom: 20px;
 }
 
@@ -96,26 +98,26 @@
   border: none;
   cursor: pointer;
   font-size: 14px;
-  color: white;
+  color: #000000; /* black text on buttons for contrast */
   transition: background-color 0.3s ease;
 }
 
 /* Buy button style */
 .buy-btn {
-  background-color: #27ae60;
+  background-color: #d4af37; /* gold background */
 }
 
 .buy-btn:hover {
-  background-color: #1e8449;
+  background-color: #f0c419; /* lighter gold */
 }
 
 /* Sell button style */
 .sell-btn {
-  background-color: #c0392b;
+  background-color: #b8860b; /* darker gold/brownish tone */
 }
 
 .sell-btn:hover {
-  background-color: #922b21;
+  background-color: #8b6a03; /* darker shade on hover */
 }
 
 /* Responsive: single column on small screens */

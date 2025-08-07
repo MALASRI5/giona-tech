@@ -2,15 +2,15 @@
   padding: 30px;
   font-family: 'Segoe UI', sans-serif;
   min-height: 100vh;
-  background-color: #f9faff; /* very light fresh background */
-  color: #222831; /* dark slate text */
+  background-color: #1a1a1a; /* dark black background */
+  color: #d4af37; /* gold text */
 }
 
 .platform-title {
   text-align: center;
   font-size: 2.8rem;
   margin-bottom: 40px;
-  color: #0d253f; /* dark slate blue */
+  color: #f0c419; /* brighter gold */
   font-weight: 700;
 }
 
@@ -19,13 +19,13 @@
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
-  margin-bottom: 60px; /* spacing below before BuySellContainer */
+  margin-bottom: 60px;
 }
 
 .text-section {
   flex: 1;
   min-width: 280px;
-  color: #334e68; /* medium slate */
+  color: #d4af37; /* gold text */
   font-size: 1.15rem;
   line-height: 1.6;
 }
@@ -34,34 +34,41 @@
   flex: 1;
   min-width: 280px;
   height: 300px;
+  background-color: #121212; /* slightly lighter black for charts */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3); /* subtle gold glow */
 }
 
 /* BuySellContainer wrapper inside dashboard */
 .buy-sell-container {
   max-width: 900px;
   margin: 0 auto 40px;
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(212,175,55,0.25);
+  color: #d4af37;
 }
 
-/* Optional: Style for buttons or interactive elements inside dashboard if needed */
-/* Example: matching button styles like About page */
+/* Buttons styling for dashboard-wrapper and buy-sell-container */
 .dashboard-wrapper button,
 .buy-sell-container button {
-  background-color: #00aaff;
-  color: #fff;
+  background-color: #d4af37; /* gold background */
+  color: #000000; /* black text for contrast */
   font-weight: 700;
   font-size: 1rem;
   padding: 12px 30px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  box-shadow: 0 6px 15px rgba(211, 217, 220, 0.4);
+  box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dashboard-wrapper button:hover,
 .buy-sell-container button:hover {
-  background-color: #059fec;
-  box-shadow: 0 8px 25px rgba(247, 247, 247, 0.6);
+  background-color: #f0c419; /* lighter gold on hover */
+  box-shadow: 0 8px 25px rgba(240, 196, 25, 0.7);
 }
 
 /* Responsive */
@@ -73,6 +80,6 @@
 
   .text-section,
   .chart-section {
-    min-width: 100%;
+    min-width: 90%;
   }
 }
