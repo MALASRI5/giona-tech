@@ -40,19 +40,30 @@ const BuySellContainer = () => {
       <h2 style={{ textAlign: "center", marginBottom: 30, color: "#d4af37" }}>
         Buy / Sell Cryptos
       </h2>
-      <div className="card-grid">
-        {coins.map((coin) => (
-          <div key={coin.id} className="card">
-            <img src={coin.img} alt={coin.name} className="coin-image" />
-            <h3 style={{ color: "#d4af37" }}>{coin.name}</h3>
-            <p className="price">${coin.price}</p>
-            <div className="button-group">
-              <button className="button buy-button">Buy</button>
-              <button className="button sell-button">Sell</button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <table className="coins-table">
+        <thead>
+          <tr>
+            <th>Coin</th>
+            <th>Buy Price (USD)</th>
+            <th>Sell Price (USD)</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {coins.map((coin) => (
+            <tr key={coin.id}>
+              <td className="coin-info" data-label="Coin">
+                <img src={coin.img} alt={coin.name} className="coin-image" />
+                <span>{coin.name}</span>
+              </td>
+              <td className="price" data-label="Buy Price">${coin.price}</td>
+              <td className="price" data-label="Sell Price">${coin.price}</td>
+              
+            </tr>
+          ))}
+        </tbody>
+
+      </table>
     </div>
   );
 };

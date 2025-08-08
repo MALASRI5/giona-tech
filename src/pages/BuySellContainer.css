@@ -2,87 +2,126 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  color: #d4af37; /* Gold text */
 }
 
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+.coins-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #121212;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.card {
-  width: 48%;
-  padding: 20px;
+.coins-table thead tr {
+  background-color: #1f1b0f;
+}
+
+.coins-table th,
+.coins-table td {
+  padding: 12px 15px;
   text-align: center;
-  background-color: #121212; /* dark black background */
-  border-radius: 10px;
-  border: 1px solid #d4af37; /* gold border */
-  box-sizing: border-box;
-  color: #d4af37; /* gold text */
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: default;
+  color: #d4af37;
+  font-weight: 600;
+  border-bottom: 1px solid #d4af37;
 }
 
-.card:hover {
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
-  transform: translateY(-5px);
+.coins-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .coin-image {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 0 5px #d4af37);
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 3px #d4af37);
 }
 
 .price {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 15px;
   color: #f0c419; /* brighter gold */
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  font-size: 16px;
 }
 
 .button {
-  flex: 1;
   margin: 0 5px;
-  padding: 8px 0;
+  padding: 6px 14px;
   font-weight: 600;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   font-size: 14px;
+  color: #000000;
   transition: background-color 0.3s ease;
-  color: #000000; /* black text on buttons for contrast */
 }
 
-/* Buy button with gold theme */
 .buy-button {
-  background-color: #d4af37; /* gold */
+  background-color: #d4af37;
 }
 
 .buy-button:hover {
-  background-color: #f0c419; /* lighter gold on hover */
+  background-color: #f0c419;
 }
 
-/* Sell button with darker gold/red tone */
 .sell-button {
-  background-color: #b8860b; /* dark gold */
+  background-color: #b8860b;
 }
 
 .sell-button:hover {
-  background-color: #8b6a03; /* darker shade on hover */
+  background-color: #8b6a03;
 }
 
-/* Responsive for mobile */
+/* Responsive */
 @media screen and (max-width: 600px) {
-  .card {
-    width: 100%;
+  .coins-table,
+  .coins-table thead,
+  .coins-table tbody,
+  .coins-table th,
+  .coins-table td,
+  .coins-table tr {
+    display: block;
+  }
+
+  .coins-table thead tr {
+    display: none;
+  }
+
+  .coins-table tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    padding: 12px 0;
+  }
+
+  .coins-table tbody td {
+    padding: 8px 20px;
+    text-align: right;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #d4af37;
+  }
+
+  .coins-table tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  .coins-table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    font-weight: 700;
+    color: #d4af37;
+    text-transform: uppercase;
+  }
+
+  .coin-info {
+    justify-content: flex-start;
   }
 }
