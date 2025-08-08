@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,7 +10,7 @@ import {
   Legend,
 } from "chart.js";
 
-import BuySellContainer from "./BuySellContainer";  // Import here
+import BuySellContainer from "./BuySellContainer";  // Adjust path if needed
 import "./Dashboard.css";
 
 ChartJS.register(
@@ -23,47 +23,100 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const data = {
-    labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+  // Initialize with some historical years and default data
+  const initialLabels = ["2020", "2021", "2022", "2023", "2024", "2025"];
+  const initialDataPoints = [30, 40, 40, 55, 40, 55, 65, 72];  // Dummy initial data
+
+  // State for chart data & labels
+  const [chartData, setChartData] = useState({
+    labels: initialLabels,
     datasets: [
       {
-        label: "Growth Over Years",
-        data: [30, 40, 40, 55, 40, 55, 65, 72],
-        borderColor: "#00bcd4",
-        backgroundColor: "#00bcd4",
-        pointBackgroundColor: "#ffffff",
-        pointBorderColor: "#00bcd4",
+        label: "USDT Price Over Time (USD)",
+        data: initialDataPoints,
+        borderColor: "#d4af37",          // gold color
+        backgroundColor: "#f0c419",      // brighter gold for background/fill (if enabled)
+        pointBackgroundColor: "#d4af37", // gold points background
+        pointBorderColor: "#f0c419",     // brighter gold points border
         borderWidth: 3,
         fill: false,
         tension: 0.4,
+
       },
     ],
-  };
+  });
 
+  useEffect(() => {
+    // Function to fetch USDT price from CoinGecko API
+    const fetchPrice = async () => {
+      try {
+        const response = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd"
+        );
+        const data = await response.json();
+        const currentPrice = data.tether.usd;
+
+        // Prepare new label as current date (formatted)
+        const now = new Date();
+        const formattedLabel = now.toLocaleDateString(undefined, {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        });
+
+        setChartData((prevData) => {
+          // Copy previous labels and data array
+          let newLabels = [...prevData.labels];
+          let newDataPoints = [...prevData.datasets[0].data];
+
+          // Append new label and price
+          newLabels.push(formattedLabel);
+          newDataPoints.push(currentPrice);
+
+          // Optional: Limit array lengths, e.g. max last 10 entries
+          if (newLabels.length > 10) newLabels.shift();
+          if (newDataPoints.length > 10) newDataPoints.shift();
+
+          return {
+            ...prevData,
+            labels: newLabels,
+            datasets: [
+              {
+                ...prevData.datasets[0],
+                data: newDataPoints,
+              },
+            ],
+          };
+        });
+      } catch (error) {
+        console.error("Failed to fetch USDT price:", error);
+      }
+    };
+
+    // Fetch immediately on component mount
+    fetchPrice();
+
+    // Set interval to fetch daily (86400000 ms = 24h)
+    const intervalId = setInterval(fetchPrice, 86400000);
+
+    // Cleanup on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Chart options (as before)
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-    },
+    plugins: { legend: { display: false } },
     scales: {
       y: {
-        beginAtZero: true,
-        ticks: {
-          stepSize: 10,
-          color: "#444",
-        },
-        grid: {
-          color: "#ddd",
-        },
+        beginAtZero: false,
+        ticks: { stepSize: 0.1, color: "#444" },
+        grid: { color: "#ddd" },
       },
       x: {
-        ticks: {
-          color: "#444",
-        },
-        grid: {
-          color: "#eee",
-        },
+        ticks: { color: "#444" },
+        grid: { color: "#eee" },
       },
     },
   };
@@ -84,12 +137,12 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <div className="chart-section">
-          <Line data={data} options={options} />
+        <div className="chart-section" style={{ height: "350px" }}>
+          <Line data={chartData} options={options} />
         </div>
       </div>
 
-      {/* Add BuySellContainer below the chart and text */}
+      {/* Render your BuySellContainer component */}
       <BuySellContainer />
     </div>
   );

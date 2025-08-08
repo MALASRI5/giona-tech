@@ -3,7 +3,11 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 30px;
-  background-color: #1a1a1a; /* dark background */
+  background-image: url('../components/assets/bgg.jpg');
+    background-size: cover;           /* Image covers full viewport */
+  background-position: center;       /* Centered */
+  background-repeat: no-repeat;      /* No repeat */
+  background-attachment: fixed;  /* dark background */
   color: #d4af37; /* gold text */
   line-height: 1.7;
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); /* subtle gold glow */

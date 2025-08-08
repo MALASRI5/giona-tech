@@ -1,9 +1,13 @@
 .dashboard-wrapper {
   padding: 30px;
   font-family: 'Segoe UI', sans-serif;
-  min-height: 100vh;
-  background-color: #1a1a1a; /* dark black background */
+  background-image: url('../components/assets/bgg.jpg');
+  background-size: cover;           /* Image covers full viewport */
+  background-position: center;       /* Centered */
+  background-repeat: no-repeat;      /* No repeat */
+  background-attachment: fixed;  
   color: #d4af37; /* gold text */
+  min-width: auto;
 }
 
 .platform-title {
@@ -80,6 +84,7 @@
 
   .text-section,
   .chart-section {
-    min-width: 90%;
+    min-width: 90px;
+    min-height: 300px;
   }
 }
